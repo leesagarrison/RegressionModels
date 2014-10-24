@@ -5,6 +5,18 @@
 
 <title>Analysis of mtcars: Automatic or Manual Transmission Better for MPG?</title>
 
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
 
 
 
@@ -58,7 +70,9 @@ a:visited {
 pre, img {
   max-width: 100%;
 }
-
+pre {
+  overflow-x: auto;
+}
 pre code {
    display: block; padding: 0.5em;
 }
@@ -219,26 +233,26 @@ Model 2: mpg ~ am + wt + cyl
 
 <p>Attempting to predict the mpg based solely on the transmission type is not a solid predictor since it can only explain 35% of the variance.  Predicting mpg based upon a vehicles weight and number of cylinders is a good predictor of mpg, accounting for 83.02% of mpg variance.  Including the transmission type in the model only improved the accuracy of the model by .01% and therefore is not needed.</p>
 
-<hr>
+<hr/>
 
 <h1>Appendix</h1>
 
 <pre><code class="r">pairs(mtcars, panel=panel.smooth, main=&quot;Figure 1 \n Plot of pairs - mtcars data&quot;, col=3)
 </code></pre>
 
-<p><img src="figure/unnamed-chunk-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+<p><img src="figure/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"/> </p>
 
 <pre><code class="r">library(lattice)
 xyplot(mpg~wt|factor(cyl), data=mtcars, type=c(&quot;p&quot;, &quot;r&quot;), main=&quot;Figure 2\n Relationship Between MPG and Weight (By Number of Cylinders)&quot;)
 </code></pre>
 
-<p><img src="figure/unnamed-chunk-2.png" alt="plot of chunk unnamed-chunk-2"> </p>
+<p><img src="figure/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"/> </p>
 
 <pre><code class="r">plot(fitted(lm(mpg~wt+cyl+disp, data=mtcars)), resid(lm(mpg~wt+cyl+disp, data=mtcars)), main=&quot;Figure 3\n Resdiual Plot (MPG~Weight+Cylinders)&quot;, xlab=&quot;Fitted&quot;, ylab=&quot;Residuals&quot;)
 abline(h=0, lty=2)
 </code></pre>
 
-<p><img src="figure/unnamed-chunk-3.png" alt="plot of chunk unnamed-chunk-3"> </p>
+<p><img src="figure/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3"/> </p>
 
 </body>
 

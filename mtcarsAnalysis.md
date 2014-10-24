@@ -80,7 +80,7 @@ pairs(mtcars, panel=panel.smooth, main="Figure 1 \n Plot of pairs - mtcars data"
 
 ```r
 library(lattice)
-xyplot(mpg~wt|factor(cyl), data=mtcars, type=c("p", "r"), main="Figure 2\n Relationship Between MPG and Weight (By Number of Cylinders)")
+xyplot(mpg~wt|factor(cyl), data=mtcars, type=c("p", "r"), main="Figure 2\n Relationship Between MPG and Weight \n(By Number of Cylinders)")
 ```
 
 ![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2.png) 
